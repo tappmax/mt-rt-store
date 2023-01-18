@@ -5,11 +5,9 @@ import { Muffin } from '../models/muffin';
 /**
  *
  * THIS IS LIKE A NORMAL STATE ENGINE
+ *  can't inject
  *
  */
-@Injectable({
-  providedIn: 'root'
-})
 export class MuffinStoreService {
   private muffinsSource = new BehaviorSubject<Muffin[]>([]);
   public muffins$ = this.muffinsSource.pipe(shareReplay(1));

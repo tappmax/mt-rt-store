@@ -31,7 +31,7 @@ export class MuffinContainerComponent implements OnInit {
       .subscribe(this.muffinStoreService.setMuffins);
     this.muffinStore.dispatcher.subscribe(({action, payload}) => {
       if (action === 'UPDATE') {
-        // damnit
+        const muffinState = this.muffinStoreService.muffins$ // uhhhhh...
       }
     })
   }
