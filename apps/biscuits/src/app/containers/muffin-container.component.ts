@@ -18,17 +18,21 @@ import { MuffinStore } from '../store/muffin.store';
  * * UPDATE PERSISTED STATE: USES HTTP SERVICE, FROM THERE STATE SHOULD PROPAGATE DOWN INTO THE STORE
  * * UI STATE: USES STORE SERVICE, INJECTABLE STORE WILL UPDATE, BUT THAT'S IT
  *
- * Outputs are still the only way for presentation components to signal to make state changes?? Is that ok?
- * Outside of just pulling in ngrx, that's all I can think of as a concession.
  */
 export class MuffinContainerComponent implements OnInit {
   private muffinStoreService = new MuffinStoreService();
   constructor(
-    private muffinService: MuffinService
+    private muffinService: MuffinService,
+    private muffinStore: MuffinStore
   ) {}
   ngOnInit(): void {
     this.muffinService
       .getMuffins()
       .subscribe(this.muffinStoreService.setMuffins);
+    this.muffinStore.dispatcher.subscribe(({action, payload}) => {
+      if (action === 'UPDATE') {
+        // damnit
+      }
+    })
   }
 }

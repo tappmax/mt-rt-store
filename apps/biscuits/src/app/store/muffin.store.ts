@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { shareReplay } from 'rxjs';
+import { shareReplay, Subject } from 'rxjs';
 import { Muffin } from '../models/muffin';
 import { MuffinStoreService } from './muffin-store.service';
 
-interface IMuffinStore {
-  muffins: ReadonlyArray<Muffin>
+interface IMuffinStoreDispatcher {
+  action: 'UPDATE' | 'CREATE' | 'DELETE'
+  payload: Muffin
 }
 
 /**
@@ -18,5 +19,14 @@ interface IMuffinStore {
 })
 export class MuffinStore {
   public muffins$ = this.muffinService.muffins$.pipe(shareReplay(1));
+  public dispatcher = new Subject<IMuffinStoreDispatcher>();
+
   constructor(private muffinService: MuffinStoreService) {}
+
+  public updateMuffin(muffin: Muffin): void {
+    this.dispatcher.next({
+      action: 'UPDATE',
+      payload: muffin
+    })
+  }
 }

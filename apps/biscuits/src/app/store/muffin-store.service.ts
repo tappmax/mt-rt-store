@@ -1,12 +1,15 @@
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, shareReplay } from 'rxjs';
 import { Muffin } from '../models/muffin';
 
 /**
  *
  * THIS IS LIKE A NORMAL STATE ENGINE
- * THIS IS NOT INJECTABLE
  *
  */
+@Injectable({
+  providedIn: 'root'
+})
 export class MuffinStoreService {
   private muffinsSource = new BehaviorSubject<Muffin[]>([]);
   public muffins$ = this.muffinsSource.pipe(shareReplay(1));
