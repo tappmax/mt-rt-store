@@ -9,7 +9,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "mtRtStore",
+            "prefix": "mt",
             "style": "camelCase"
           }
         ],
@@ -17,7 +17,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "mt-rt-store",
+            "prefixes": ["app", "mt"],
             "style": "kebab-case"
           }
         ]

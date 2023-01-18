@@ -2,10 +2,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { MuffinComponent } from './components/muffin.component';
+import { MuffinContainerComponent } from './containers/muffin-container.component';
+import { GetPipe } from './pipes/get.pipe';
+import { PluckPipe } from './pipes/map.pipe';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
+  declarations: [
+    AppComponent,
+    MuffinContainerComponent,
+    MuffinComponent,
+    GetPipe,
+    PluckPipe
+  ],
   imports: [BrowserModule],
   providers: [],
   bootstrap: [AppComponent],
