@@ -29,6 +29,9 @@ export class MuffinContainerComponent implements OnInit {
     this.muffinService
       .getMuffins()
       .subscribe(this.muffinStoreService.setMuffins);
+
+    this.muffinStore.initialize(this.muffinStoreService);
+
     this.muffinStore.dispatcher.subscribe(({action, payload}) => {
       if (action === 'UPDATE') {
         const muffinState = this.muffinStoreService.muffins$ // uhhhhh...
