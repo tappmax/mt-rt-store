@@ -29,8 +29,8 @@ import { MuffinStore } from '../store/muffin.store';
  * Outside of just pulling in ngrx, that's all I can think of as a concession.
  */
 export class MuffinContainerComponent implements OnInit {
+  private muffinStoreService = new MuffinStoreService();
   constructor(
-    private muffinStoreService: MuffinStoreService,
     private muffinService: MuffinService,
     public muffinStore: MuffinStore
   ) {}
