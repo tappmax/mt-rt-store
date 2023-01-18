@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { MuffinComponent } from './components/muffin.component';
+import { MuffinsComponent } from './components/muffins.component';
 import { MuffinContainerComponent } from './containers/muffin-container.component';
 import { GetPipe } from './pipes/get.pipe';
 import { PluckPipe } from './pipes/pluck.pipe';
@@ -11,6 +12,7 @@ import { PluckPipe } from './pipes/pluck.pipe';
   declarations: [
     AppComponent,
     MuffinContainerComponent,
+    MuffinsComponent,
     MuffinComponent,
     GetPipe,
     PluckPipe

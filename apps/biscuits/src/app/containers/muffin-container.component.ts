@@ -4,17 +4,10 @@ import { MuffinStoreService } from '../store/muffin-store.service';
 import { MuffinStore } from '../store/muffin.store';
 
 @Component({
-  selector: 'app-muffins',
+  selector: 'app-muffin-container',
   template: `
     <h1>Muffins</h1>
-    <ng-container
-      *ngFor="
-        let muffinId;
-        in: (muffinStore.muffins$ | async) || [] | map : 'id'
-      "
-    >
-      <mt-muffin [muffinId]="muffinId"></mt-muffin>
-    </ng-container>
+    <app-muffins></app-muffins>
   `,
   styles: [``],
 })
@@ -31,8 +24,7 @@ import { MuffinStore } from '../store/muffin.store';
 export class MuffinContainerComponent implements OnInit {
   private muffinStoreService = new MuffinStoreService();
   constructor(
-    private muffinService: MuffinService,
-    public muffinStore: MuffinStore
+    private muffinService: MuffinService
   ) {}
   ngOnInit(): void {
     this.muffinService
