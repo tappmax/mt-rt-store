@@ -3,6 +3,11 @@ import { Observable, of } from 'rxjs';
 import { Muffin } from '../models/muffin';
 import { generateUUID } from '../utils/crypto.util';
 
+/**
+ *
+ *  THIS IS LIKE A NORMAL HTTP SERVICE
+ *
+ */
 @Injectable({
   providedIn: 'root'
 })

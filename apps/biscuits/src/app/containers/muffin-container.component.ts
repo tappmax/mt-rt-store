@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MuffinService } from '../services/muffin.service';
-import { MuffinStoreService } from '../store/muffin.service';
+import { MuffinStoreService } from '../store/muffin-store.service';
 import { MuffinStore } from '../store/muffin.store';
 
 @Component({
@@ -18,6 +18,16 @@ import { MuffinStore } from '../store/muffin.store';
   `,
   styles: [``],
 })
+/**
+ *
+ * THIS IS THE CONTAINER/SMART COMPONENT.
+ * IT WILL HANDLE DUMB COMPONENT OUTPUTS AND:
+ * * UPDATE PERSISTED STATE: USES HTTP SERVICE, FROM THERE STATE SHOULD PROPAGATE DOWN INTO THE STORE
+ * * UI STATE: USES STORE SERVICE, INJECTABLE STORE WILL UPDATE, BUT THAT'S IT
+ *
+ * Outputs are still the only way for presentation components to signal to make state changes?? Is that ok?
+ * Outside of just pulling in ngrx, that's all I can think of as a concession.
+ */
 export class MuffinContainerComponent implements OnInit {
   constructor(
     private muffinStoreService: MuffinStoreService,

@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { MuffinComponent } from './components/muffin.component';
 import { MuffinContainerComponent } from './containers/muffin-container.component';
 import { GetPipe } from './pipes/get.pipe';
-import { PluckPipe } from './pipes/map.pipe';
+import { PluckPipe } from './pipes/pluck.pipe';
 
 @NgModule({
   declarations: [
