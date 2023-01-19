@@ -15,4 +15,7 @@ export class MuffinStoreService {
   public setMuffins(muffins: Muffin[]): void {
     this.muffinsSource.next(muffins);
   }
+  public getMuffins(): Muffin[] {
+    return this.muffinsSource.value;
+  }
 }

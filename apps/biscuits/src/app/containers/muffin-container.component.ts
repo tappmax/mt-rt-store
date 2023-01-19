@@ -34,7 +34,25 @@ export class MuffinContainerComponent implements OnInit {
 
     this.muffinStore.dispatcher.subscribe(({action, payload}) => {
       if (action === 'UPDATE') {
-        const muffinState = this.muffinStoreService.muffins$ // uhhhhh...
+        const muffinState = this.muffinStoreService.getMuffins();
+        const updateIndex = muffinState.findIndex((m) => m.id === payload.id);
+        muffinState.splice(updateIndex, 1);
+        this.muffinStoreService.setMuffins({
+          ...muffinState
+        });
+      }
+      if (action === 'CREATE') {
+        const muffinState = this.muffinStoreService.getMuffins();
+        muffinState.push(payload);
+        this.muffinStoreService.setMuffins({
+          ...muffinState
+        });
+      }
+      if (action === 'CREATE') {
+        const muffinState = this.muffinStoreService.getMuffins();
+        this.muffinStoreService.setMuffins({
+          ...muffinState.filter(m => m.id === payload.id)
+        });
       }
     })
   }

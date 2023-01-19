@@ -28,10 +28,28 @@ export class MuffinStore {
     this.muffins$ = this.muffinStoreService.muffins$.pipe(shareReplay(1));
   }
 
-  public updateMuffin(muffin: Muffin): void {
-    this.dispatcher.next({
-      action: 'UPDATE',
-      payload: muffin
-    })
+  public getMuffinCount = () => {
+    this.muffinStoreService.getMuffins().length;
   }
+
+  public readonly dispatch = {
+    updateMuffin: (muffin: Muffin): void => {
+      this.dispatcher.next({
+        action: 'UPDATE',
+        payload: muffin
+      })
+    },
+    createMuffin: (muffin: Muffin): void => {
+      this.dispatcher.next({
+        action: 'CREATE',
+        payload: muffin
+      })
+    },
+    deleteMuffin: (muffin: Muffin): void => {
+      this.dispatcher.next({
+        action: 'DELETE',
+        payload: muffin
+      })
+    },
+  } as const;
 }
