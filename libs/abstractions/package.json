@@ -1,0 +1,14 @@
+{
+  "name": "@rt/abstractions",
+  "version": "4.0.6-20312.3",
+  "license": "UNLICENSED",
+  "peerDependencies": {
+    "@angular/common": ">=14.0.0",
+    "@angular/core": ">=14.0.0",
+    "@rt/http": ">=6.0.0",
+    "@rt/factotum": ">=8.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}
